@@ -1,0 +1,55 @@
+{
+  "name": "react-zustand-devtools",
+  "version": "1.0.0",
+  "description": "zustand devtools component",
+  "author": "Yunho Seo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunho1017/react-zustand-devtools.git"
+  },
+  "keywords": [
+    "react",
+    "zustand",
+    "devtools"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./esm/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {
+    "goober": "^2.1.14",
+    "react-json-view": "^1.21.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "zustand": ">=4.0.0"
+  },
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "scripts": {
+    "build": "rm -rf dist esm && tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir dist && rollup -c rollup.config.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-react": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.6",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/react": "^18.3.2",
+    "rollup": "^4.18.0",
+    "styled-components": "^6.1.11",
+    "typescript": "^5.4.5",
+    "zustand": "^4.5.2"
+  }
+}

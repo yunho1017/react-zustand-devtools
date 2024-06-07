@@ -1,0 +1,13 @@
+{
+  "include": ["src"],
+  "exclude": ["dist", "esm", "examples"],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext"],
+    "declaration": true,
+    "rootDir": "./src",
+    "jsx": "react-jsx",
+    "esModuleInterop": true
+  }
+}
