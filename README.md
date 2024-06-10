@@ -10,7 +10,7 @@ use React Context with selector
 Zustand Devtools uses Redux devtools.
 Redux Devtools is great, but you can't debug multiple zustand stores.
 
-Using this library, can debug multiple stores
+Using this library, you can debug multiple stores
 
 ## Install
 
@@ -26,4 +26,27 @@ yarn add react-zustand-devtools react zustand
 
 ## Usage
 
-TODO
+```ts
+// store.ts
+import { create } from "zustand";
+import { devtools } from "react-zustand-devtools";
+
+const useStore = create(
+  devtools((set) => ({
+    ...Store,
+  }))
+);
+```
+
+```ts
+// component.tsx
+import { ZustandDevtools } from "react-zustand-devtools";
+
+const Component = () => {
+  return (
+    <ZustandDevtools>
+      <button>open devtools</button>
+    </ZustandDevtools>
+  );
+};
+```

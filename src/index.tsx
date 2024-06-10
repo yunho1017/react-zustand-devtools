@@ -40,7 +40,7 @@ export const ZustandDevtools: React.FC<{
   );
 };
 
-export function createDevtools<T>(
+export function devtools<T>(
   fn: StateCreator<T>,
   id: string = generateId()
 ): StateCreator<T> {
