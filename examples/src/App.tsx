@@ -1,9 +1,9 @@
 import "./App.css";
 import { create } from "zustand";
-import { ZustandDevtools, createDevtools } from "react-zustand-devtools";
+import { ZustandDevtools, devtools } from "react-zustand-devtools";
 
 const counter1 = create<{ count: number; increment(): void }>(
-  createDevtools(
+  devtools(
     (set) => ({
       count: 0,
       increment: () => set((state) => ({ count: state.count + 1 })),
@@ -12,7 +12,7 @@ const counter1 = create<{ count: number; increment(): void }>(
   )
 );
 const counter2 = create<{ count: number; increment(): void }>(
-  createDevtools(
+  devtools(
     (set) => ({
       count: 0,
       increment: () => set((state) => ({ count: state.count + 1 })),

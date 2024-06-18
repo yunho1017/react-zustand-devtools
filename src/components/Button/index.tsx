@@ -2,7 +2,7 @@ import { styled } from "goober";
 import { Typography } from "../Typography";
 
 const Component = styled("button")`
-  background-color: var(--zd-bg-gray-400);
+  background-color: var(--zd-bg-gray-500);
   padding: 4px 16px;
   border-radius: 6px;
   outline: none;

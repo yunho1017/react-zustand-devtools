@@ -5,7 +5,7 @@ const Component = styled("span")<{
   color?: "white" | "gray" | "gray800";
 }>`
   word-break: break-word;
-  font-family: Noto Sans, Roboto, sans-serif;
+  font-family: Noto Sans, sans-serif;
   ${(props) => {
     switch (props.level) {
       case 3:

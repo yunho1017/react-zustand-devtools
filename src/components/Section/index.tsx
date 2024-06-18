@@ -4,7 +4,7 @@ import { Typography } from "../Typography";
 const Wrapper = styled("section")`
   display: flex;
   flex-direction: column;
-  background-color: var(--zd-bg-gray-600);
+  background-color: var(--zd-bg-gray-700);
 `;
 
 const Title = styled("div")`

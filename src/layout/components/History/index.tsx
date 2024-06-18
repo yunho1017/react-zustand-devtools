@@ -25,7 +25,7 @@ const List = styled("ul")`
 
 const Content = styled("div")`
   flex: 2;
-  background-color: var(--zd-bg-gray-500);
+  background-color: var(--zd-bg-gray-600);
 `;
 
 const Item = styled("li")<{ selected: boolean }>`
@@ -36,7 +36,7 @@ const Item = styled("li")<{ selected: boolean }>`
   gap: 4px;
   cursor: pointer;
   border-radius: 4px;
-  background-color: var(--zd-bg-gray-500);
+  background-color: var(--zd-bg-gray-600);
 `;
 
 export const History: React.FC = () => {

@@ -2,15 +2,13 @@ import { createGlobalStyles } from "goober/global";
 
 export const GlobalStyles = createGlobalStyles`
   html {
-    --zd-text-white: rgb(255, 255, 255);
-    --zd-text-gray-400: rgb(156, 163, 175);
-    --zd-text-gray-800: rgb(31 41 55);
-  
-    --zd-bg-gray-200: rgb(229 231 235);
-    --zd-bg-gray-300: rgb(209 213 219);
-    --zd-bg-gray-400: rgb(156 163 175);
-    --zd-bg-gray-500: rgb(31 41 55);
-    --zd-bg-gray-600: rgb(17 24 39);
-    --zd-bg-gray-800: rgb(3 7 18);
+    --zd-text-white: #FFFFFF;
+    --zd-text-gray-400: #A0AEC0;
+    --zd-text-gray-800: #718096;
+    
+    --zd-bg-gray-500: #718096;
+    --zd-bg-gray-600: #4A5568;
+    --zd-bg-gray-700: #2D3748;
+    --zd-bg-gray-800: #1A202C;
   }
 ` as JSX.ElementType;
