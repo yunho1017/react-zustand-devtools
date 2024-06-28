@@ -1,7 +1,7 @@
 const babel = require("@rollup/plugin-babel").default;
 const commonjs = require("@rollup/plugin-commonjs");
 const resolve = require("@rollup/plugin-node-resolve").default;
-
+const path = require("path");
 module.exports = [
   {
     input: "src/index.tsx",
@@ -9,6 +9,8 @@ module.exports = [
       dir: "esm",
       format: "es",
       entryFileNames: "[name].mjs",
+      preserveModules: true,
+      preserveModulesRoot: path.dirname("src/index.ts"),
     },
     plugins: [
       resolve({ extensions: [".js", ".jsx", ".ts", ".tsx"] }),
