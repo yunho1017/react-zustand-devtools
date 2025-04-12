@@ -1,6 +1,6 @@
 import { memo, useEffect, useSyncExternalStore } from "react";
 import { StoreApi, useStore } from "zustand";
-import { Store, useHistoryStore } from "../../store";
+import { Store, useHistoryStore } from "../store";
 
 const Listener: React.FC<{ api: StoreApi<any>; id: string }> = ({
   api,

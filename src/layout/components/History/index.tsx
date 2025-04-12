@@ -1,77 +1,51 @@
-import { useContext, useState } from "react";
-import { styled } from "goober";
-import { Section } from "../../../components/Section";
-import { Typography } from "../../../components/Typography";
-import { JSONRenderer } from "../../../components/JSONRenderer";
-import { formatDate } from "../../../helpers/formateDate";
-import { useHistoryStore } from "../../../store";
+import { useState, useContext } from "react";
+
+import { Section } from "../../../components/ui/Section";
 import { SelectedStoreApiContext } from "../../context";
+import {
+  ChevronIcon,
+  HistoryList,
+  HistoryItem,
+  HistoryTrigger,
+  HistoryContent,
+  HistoryIcon,
+} from "./styled";
+import { useHistoryStore } from "../../../store";
+import { formatDate } from "../../../helpers/formateDate";
+import { JSONRenderer } from "../../../components/ui/JSONRenderer";
 
-const Wrapper = styled("div")`
-  display: flex;
-  height: 100%;
-  gap: 8px;
-`;
-const List = styled("ul")`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  gap: 8px;
-  padding: 0;
-  margin: 0;
-  overflow: auto;
-`;
-
-const Content = styled("div")`
-  flex: 2;
-  background-color: var(--zd-bg-gray-600);
-`;
-
-const Item = styled("li")<{ selected: boolean }>`
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 8px;
-  gap: 4px;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: var(--zd-bg-gray-600);
-`;
-
-export const History: React.FC = () => {
+export const History = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(undefined);
   const api = useContext(SelectedStoreApiContext);
   const history = useHistoryStore((state) => state.history[api!.id] ?? []);
   const [selected, setSelected] = useState<number>();
 
+  const toggleHistory = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+    setSelected(index);
+  };
+
   return (
-    <Section
-      title="History"
-      style={{ flex: 1, minHeight: 0, gridArea: "history" }}
-    >
-      <Wrapper>
-        <List>
-          {history.map((item, index) => (
-            <Item
-              key={index}
-              selected={selected === index}
-              onClick={() => setSelected(index)}
+    <Section title="History" icon={<HistoryIcon />} style={{ flex: 1 }}>
+      <HistoryList>
+        {history.reverse().map((item, index) => (
+          <HistoryItem key={index}>
+            <HistoryTrigger
+              selected={selectedIndex === index}
+              onClick={() => toggleHistory(index)}
             >
-              <Typography level={2} color="white">
-                UpdatedAt
-              </Typography>
-              <Typography level={3} color="white">
-                {formatDate(item.date)}
-              </Typography>
-            </Item>
-          ))}
-        </List>
-        <Content>
-          <JSONRenderer
-            state={history.find((_, index) => selected === index)?.state}
-          />
-        </Content>
-      </Wrapper>
+              <span>{formatDate(item.date)}</span>
+              <ChevronIcon isOpen={expandedIndex === index} />
+            </HistoryTrigger>
+            <HistoryContent isOpen={expandedIndex === index}>
+              <JSONRenderer
+                state={history.find((_, index) => selected === index)?.state}
+              />
+            </HistoryContent>
+          </HistoryItem>
+        ))}
+      </HistoryList>
     </Section>
   );
 };

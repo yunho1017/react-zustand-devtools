@@ -5,8 +5,12 @@ import { setup } from "goober";
 import { Store } from "./store";
 import { Layout } from "./layout";
 import { GlobalStyles } from "./globalStyle";
-import { HistoryListener } from "./layout/components/HistoryListener";
+import { HistoryListener } from "./components/HistoryListener";
 import { generateId } from "./helpers/generateId";
+import { CurrentState } from "./components/CurrentState";
+import { Details } from "./components/Details";
+import { Actions } from "./components/Actions";
+import { History } from "./layout/components/History";
 
 setup(createElement);
 
@@ -20,12 +24,15 @@ export const ZustandDevtools: React.FC<{
       <GlobalStyles />
       <HistoryListener />
       {show && (
-        <Layout>
-          <Layout.CurrentState />
-          <Layout.Details />
-          <Layout.Actions />
-          <Layout.History />
-          <Layout.CloseButton onClick={() => setShow(false)} />
+        <Layout onClose={() => setShow(false)}>
+          <Layout.Left>
+            <CurrentState />
+          </Layout.Left>
+          <Layout.Right>
+            <Details />
+            <Actions />
+            <History />
+          </Layout.Right>
         </Layout>
       )}
 
