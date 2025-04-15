@@ -51,6 +51,7 @@ export const Content = styled("div")`
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
   }
+  overflow-y: auto;
 `;
 
 export const MainContent = styled("div")`

@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/react-zustand-devtools)](https://www.npmjs.com/package/react-zustand-devtools)
 [![size](https://img.shields.io/bundlephobia/minzip/react-zustand-devtools)](https://bundlephobia.com/result?p=react-zustand-devtools)
 
-use React Context with selector
+debug multiple zustand stores
 
 [Examples](https://react-zustand-devtools.vercel.app/)
 
